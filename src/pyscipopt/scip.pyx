@@ -324,7 +324,10 @@ cdef class Column:
     def isIntegral(self):
         """returns whether the associated variable is of integral type (binary, integer, implicit integer)"""
         return SCIPcolIsIntegral(self.scip_col)
-
+    
+    def getIndex(self):
+        return SCIPcolGetIndex(self.scip_col)
+    
     def getVar(self):
         """gets variable this column represents"""
         cdef SCIP_VAR* var = SCIPcolGetVar(self.scip_col)
